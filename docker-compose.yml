@@ -1,0 +1,41 @@
+version: '3'
+services:
+  soap:
+    build:
+      context: ./soap-service
+      dockerfile: Dockerfile
+    hostname: soap
+    ports:
+      - "8080:8080"
+  rest:
+    build:
+      context: ./rest-service
+      dockerfile: Dockerfile
+    hostname: rest
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+  postgres:
+    image: "postgres:13"
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=db
+    volumes:
+      - ./data/postgres:/data/postgres
+      - ./init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: sergey.yazynin.98@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
