@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 
-  @Query("select a from Appointment a where a.startTime like %:date% and a.exists a.patient is null and exists ( " +
+  @Query("select a from Appointment a where DAY(a.startTime) = DAY(:date) and a.patient is null and exists ( " +
       "select 1 from Doctor d where a.doctor=d and d.id = :doctor_id)")
   List<Appointment> findByDoctorIdAndDate(@Param("doctor_id") long id, @Param("date") LocalDate date);
 

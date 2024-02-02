@@ -23,8 +23,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -100,7 +100,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<packageName>scheduler.soapclient</packageName>
+					<packageName>scheduler</packageName>
 					<sourceType>wsdl</sourceType>
 					<sources>
 						<source>src/main/resources/rules.wsdl</source>

@@ -18,6 +18,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/db
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
+    depends_on:
+      - "soap"
   postgres:
     image: "postgres:13"
     hostname: postgres

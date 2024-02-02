@@ -24,17 +24,17 @@ public class WebServiceConfig extends WsConfigurerAdapter {
   }
 
   @Bean(name = "timeSlots")
-  public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+  public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema rulesSchema) {
     DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
     wsdl11Definition.setPortTypeName("TimeSlotsPort");
     wsdl11Definition.setLocationUri("/ws");
     wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
-    wsdl11Definition.setSchema(countriesSchema);
+    wsdl11Definition.setSchema(rulesSchema);
     return wsdl11Definition;
   }
 
   @Bean
-  public XsdSchema countriesSchema() {
+  public XsdSchema rulesSchema() {
     return new SimpleXsdSchema(new ClassPathResource("rules.xsd"));
   }
 }

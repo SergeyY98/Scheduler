@@ -4,15 +4,12 @@ import scheduler.domain.Appointment;
 import scheduler.domain.Doctor;
 import scheduler.repository.AppointmentRepository;
 import scheduler.repository.DoctorRepository;
-import scheduler.soapclient.GetTimeSlotsResponse;
-import scheduler.soapclient.Rule;
-import scheduler.soapclient.RuleClient;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import scheduler.soapclient.RuleClient;
 
-import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.Duration;
 import javax.xml.datatype.XMLGregorianCalendar;

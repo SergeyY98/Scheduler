@@ -17,7 +17,7 @@ public class TimeSlotEndpoint {
     this.timeSlotsService = timeSlotsService;
   }
 
-  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getRuleRequest")
+  @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getTimeSlotsRequest")
   @ResponsePayload
   public GetTimeSlotsResponse getTimeSlots(@RequestPayload GetTimeSlotsRequest request) {
     GetTimeSlotsResponse response = new GetTimeSlotsResponse();

@@ -57,7 +57,7 @@
     </wsdl:binding>
     <wsdl:service name="TimeSlotsPortService">
         <wsdl:port binding="tns:TimeSlotsPortSoap11" name="TimeSlotsPortSoap11">
-            <soap:address location="http://localhost:8080/ws"/>
+            <soap:address location="http://soap:8080/ws"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

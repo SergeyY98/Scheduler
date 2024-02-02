@@ -21,17 +21,17 @@ public class AppointmentController {
 
   private final AppointmentService service;
 
-  @GetMapping
+  @GetMapping("doctorId/{doctorId}/date/{date}")
   public List<Appointment> findByDoctorIdAndDate(@RequestParam("doctorId") long doctorId, @RequestParam("date") LocalDate date) {
     return service.findByDoctorIdAndDate(doctorId, date);
   }
 
-  @PostMapping
+  @PostMapping("/{appointmentId}")
   public Appointment bookTimeById(@RequestBody Patient patient, @RequestParam("appointmentId") String appointmentId) {
     return service.bookTimeById(patient, Long.parseLong(appointmentId));
   }
 
-  @GetMapping
+  @GetMapping("patientId/{patientId}")
   public List<Appointment> findByPatientId(@RequestParam("patientId") String patientId) {
     return service.findByPatientId(Long.parseLong(patientId));
   }

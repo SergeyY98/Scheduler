@@ -3,6 +3,7 @@ package scheduler.soapclient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
+import scheduler.soapclient.RuleClient;
 
 @Configuration
 public class RuleConfiguration {
@@ -10,7 +11,7 @@ public class RuleConfiguration {
   @Bean
   public Jaxb2Marshaller marshaller() {
     Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-    marshaller.setContextPath("rules.wsdl");
+    marshaller.setContextPath("scheduler");
     return marshaller;
   }
 
